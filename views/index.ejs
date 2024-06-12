@@ -8,47 +8,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-      
-        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+        :root {
+            --bg-color-light: #F8F9FF;
+            --bg-color-dark: #374F77;
+            --text-color-light: #000;
+            --text-color-dark: #FFF;
+            --card-bg-light: white;
+            --card-bg-dark: #495057;
+            --btn-dark-bg-light: #7494D4;
+            --btn-dark-bg-dark: #607cac;
+            --navbar-bg-light: white;
+            --navbar-bg-dark: #212529;
+        }
 
         body {
-            background-color: #F8F9FF;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
             font-family: "Poppins", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
         }
 
         .navbar {
-          box-shadow: 0 2px 2px -2px gray;
-          background-color: white !important;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-      }
+            box-shadow: 0 2px 2px -2px gray;
+            background-color: var(--navbar-bg-light) !important;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-      .navbar-logo {
-          height: 50px; 
-      }
+        .dark-mode .navbar {
+            background-color: var(--navbar-bg-dark) !important;
+        }
 
-      .navbar-text {
-          margin: 0 auto;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 1.5rem;
-          font-family: "Bree Serif", serif;
-      }
+        .navbar-logo {
+            height: 50px;
+        }
+
+        .navbar-text {
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            font-family: "Bree Serif", serif;
+        }
       
-      .titleFont{
-        font-family: "Bree Serif", serif;
-      }
+        .dark-mode .navbar-text {
+            color: #d3d3d3;
+        }
+
+        .titleFont {
+            font-family: "Bree Serif", serif;
+        }
+
+        .dark-mode .titleFont {
+            color: var(--text-color-dark);
+        }
 
         .expandable-div {
-            background-color: white;
+            background-color: var(--card-bg-light);
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 15px;
             transition: all 0.3s ease;
+        }
+
+        .dark-mode .expandable-div {
+            background-color: var(--card-bg-dark);
+            border: 1px solid #A0A0A0;
         }
 
         .expandable-div .header {
@@ -61,99 +97,128 @@
             display: none;
             padding-top: 10px;
         }
-      
+
         .floating-div {
-          background-color: #f8f9fa; 
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          padding: 20px;
-          margin-bottom: 20px;
-          transition: all 0.3s ease;
-      }
+            background-color: var(--card-bg-light);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
 
-      .floating-div .links {
-          display: flex;
-          justify-content: center;
-          margin-top: 15px;
-      }
+        .dark-mode .floating-div {
+            background-color: var(--card-bg-dark);
+            border: 1px solid #A0A0A0;
+        }
 
-      .floating-div .btn {
-          margin: 0 5px;
-      }
+        .floating-div .links {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
 
-      .floating-div .btn i {
-          margin-right: 5px;
-      }
-      
-      .btn-dark{
-        background-color: #7494D4 !important;
-        border-color: #7494D4 !important;
-      }
-      
-      .btn-dark:hover{
-        background-color: #607cac !important;
-        border-color: #607cac !important;
-      }
+        .floating-div .btn {
+            margin: 0 5px;
+        }
 
+        .floating-div .btn i {
+            margin-right: 5px;
+        }
 
+        .btn-dark {
+            background-color: var(--btn-dark-bg-light) !important;
+            border-color: var(--btn-dark-bg-light) !important;
+        }
+
+        .dark-mode .btn-dark {
+            background-color: var(--btn-dark-bg-dark) !important;
+            border-color: var(--btn-dark-bg-dark) !important;
+        }
+
+        .btn-dark:hover {
+            background-color: var(--btn-dark-bg-dark) !important;
+            border-color: var(--btn-dark-bg-dark) !important;
+        }
+
+        .dark-mode .btn-dark:hover {
+            background-color: var(--btn-dark-bg-light) !important;
+            border-color: var(--btn-dark-bg-light) !important;
+        }
+
+        .custom-control-label .fa-sun {
+            color: #000;
+        }
+
+        .dark-mode .custom-control-label .fa-sun {
+            color: #fff;
+        }
+
+        .custom-control-label .fa-moon {
+            color: #000;
+        }
+
+        .dark-mode .custom-control-label .fa-moon {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a target="_blank" class="navbar-brand" href="https://lei.ucsd.edu/">
-        <img src="/images/logo.png" alt="EvidenceBench Logo" class="navbar-logo">
-    </a>
-    <span class="navbar-text mx-auto">EvidenceBench</span>
+        <a target="_blank" class="navbar-brand" href="https://lei.ucsd.edu/">
+            <img src="/images/logo.png" alt="EvidenceBench Logo" class="navbar-logo">
+        </a>
+        <span class="navbar-text mx-auto">EvidenceBench</span>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="modeSwitch" onchange="toggleMode()">
+            <label class="custom-control-label" for="modeSwitch"><i class="fa-regular fa-sun"></i> / <i class="fa-regular fa-moon"></i></label>
+        </div>
     </nav>
 
-
-   
     <div class="container mt-4">
-       
-       <div class="floating-div" id="description-div">
-    <h4 class="titleFont">About EvidenceBench</h4><br>
-    <p>EvidenceBench is a cutting-edge benchmark designed to advance the field of biomedical information retrieval. It provides a standardized framework for evaluating the performance of models in extracting relevant evidence from biomedical literature. EvidenceBench is crafted to support the development and testing of models that can effectively synthesize and analyze scientific evidence, thereby accelerating research and enabling more informed decision-making in the biomedical field. </p>
+        <div class="floating-div" id="description-div">
+            <h4 class="titleFont">About EvidenceBench</h4><br>
+            <p>EvidenceBench is a cutting-edge benchmark designed to advance the field of biomedical information retrieval. It provides a standardized framework for evaluating the performance of models in extracting relevant evidence from biomedical literature. EvidenceBench is crafted to support the development and testing of models that can effectively synthesize and analyze scientific evidence, thereby accelerating research and enabling more informed decision-making in the biomedical field.</p>
 
-  <p>Our benchmark leverages expertly annotated datasets derived from hundreds of biomedical papers, ensuring high-quality, reliable data for model training and evaluation. By providing a comprehensive and scalable evaluation framework, EvidenceBench aims to set a new standard for evidence retrieval tasks, fostering innovation and improvement in natural language processing and machine learning applications.</p><br>
-    
-  <div class="links">
-      <a target="_blank" href="https://example.com/" class="btn btn-dark">
-          <i class="fas fa-file-alt"></i> Paper
-      </a>
-      <a target="_blank" href="https://lei.ucsd.edu/people" class="btn btn-dark">
-          <i class="fas fa-users"></i> Lab Group
-      </a>
-      <a target="_blank" href="https://github.com/EvidenceBench/EvidenceBench" class="btn btn-dark">
-          <i class="fab fa-github"></i> GitHub
-      </a>
-  </div>
-</div>
-       
+            <p>Our benchmark leverages expertly annotated datasets derived from hundreds of biomedical papers, ensuring high-quality, reliable data for model training and evaluation. By providing a comprehensive and scalable evaluation framework, EvidenceBench aims to set a new standard for evidence retrieval tasks, fostering innovation and improvement in natural language processing and machine learning applications.</p><br>
+
+            <div class="links">
+                <a target="_blank" href="https://example.com/" class="btn btn-dark">
+                    <i class="fas fa-file-alt"></i> Paper
+                </a>
+                <a target="_blank" href="https://lei.ucsd.edu/people" class="btn btn-dark">
+                    <i class="fas fa-users"></i> Lab Group
+                </a>
+                <a target="_blank" href="https://github.com/EvidenceBench/EvidenceBench" class="btn btn-dark">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
         <div class="expandable-div" id="div-1">
             <div class="header">
                 <h5 class="titleFont">Description of Benchmark</h5>
                 <button class="btn btn-sm" onclick="toggleContent(1)" id="button-1">+</button>
             </div>
             <div class="content">
-               <p><strong>EvidenceBench</strong> is a benchmark designed to evaluate models' ability to retrieve evidence from biomedical literature. It includes over 400 annotated biomedical papers with approximately 700,000 sentence-level annotations, each identifying relevant study aspects that provide evidence for or against scientific hypotheses.</p>
+                <p><strong>EvidenceBench</strong> is a benchmark designed to evaluate models' ability to retrieve evidence from biomedical literature. It includes over 400 annotated biomedical papers with approximately 700,000 sentence-level annotations, each identifying relevant study aspects that provide evidence for or against scientific hypotheses.</p>
 
-              <p><strong>Key Components:</strong></p>
-              <ul>
-                <li><strong>Datasets</strong>: Expert-annotated biomedical papers with detailed study aspects.</li>
-                <li><strong>Tasks</strong>: Evidence Retrieval @K (ER@K), where models retrieve sentences that best cover the study aspects.</li>
-                <li><strong>Evaluation Metrics</strong>: Aspect Recall @K, measuring the fraction of study aspects covered by the retrieved sentences.</li>
-              </ul>
+                <p><strong>Key Components:</strong></p>
+                <ul>
+                    <li><strong>Datasets</strong>: Expert-annotated biomedical papers with detailed study aspects.</li>
+                    <li><strong>Tasks</strong>: Evidence Retrieval @K (ER@K), where models retrieve sentences that best cover the study aspects.</li>
+                    <li><strong>Evaluation Metrics</strong>: Aspect Recall @K, measuring the fraction of study aspects covered by the retrieved sentences.</li>
+                </ul>
 
-              <p><strong>Evaluation Strategies:</strong></p>
-              <ul>
-                <li><strong>Chain-of-Thought Prompting</strong>: Guides models through logical reasoning steps.</li>
-                <li><strong>In-Context Learning (ICL)</strong>: Uses example-based prompting to enhance understanding.</li>
-                <li><strong>Section-by-Section Processing</strong>: Retrieves evidence from each section of a paper independently.</li>
-                <li><strong>Instruction-following Embedding Systems</strong>: Utilizes advanced embedding models to optimize retrieval.</li>
-              </ul>
+                <p><strong>Evaluation Strategies:</strong></p>
+                <ul>
+                    <li><strong>Chain-of-Thought Prompting</strong>: Guides models through logical reasoning steps.</li>
+                    <li><strong>In-Context Learning (ICL)</strong>: Uses example-based prompting to enhance understanding.</li>
+                    <li><strong>Section-by-Section Processing</strong>: Retrieves evidence from each section of a paper independently.</li>
+                    <li><strong>Instruction-following Embedding Systems</strong>: Utilizes advanced embedding models to optimize retrieval.</li>
+                </ul>
 
-              <p>EvidenceBench provides a comprehensive and standardized framework for testing and improving evidence retrieval models, fostering innovation in biomedical information processing.</p>
-
+                <p>EvidenceBench provides a comprehensive and standardized framework for testing and improving evidence retrieval models, fostering innovation in biomedical information processing.</p>
             </div>
         </div>
 
@@ -164,46 +229,45 @@
             </div>
             <div class="content">
                 <p><strong>Evaluation Metrics:</strong></p>
-                  <ul>
+                <ul>
                     <li>
-                      <p><strong>Aspect Recall @K</strong></p>
-                      <p>Aspect Recall @K measures the fraction of study aspects covered by a set of K retrieved sentences. Let {s1, …, sk} be the set of retrieved sentences and {f1, …, fm} be the set of study aspects in the evidence set. Aspect Recall @K is defined as:</p>
-                      <pre>
-                      Aspect Recall @K = (Σ 1(if Σ S(si, fj) ≥ 1)) / m
-                      </pre>
-                      <p>This metric evaluates how well the retrieved sentences cover the relevant study aspects. It is crucial for determining the effectiveness of evidence retrieval systems in covering important aspects of a study.</p>
+                        <p><strong>Aspect Recall @K</strong></p>
+                        <p>Aspect Recall @K measures the fraction of study aspects covered by a set of K retrieved sentences. Let {s1, …, sk} be the set of retrieved sentences and {f1, …, fm} be the set of study aspects in the evidence set. Aspect Recall @K is defined as:</p>
+                        <pre>
+Aspect Recall @K = (Σ 1(if Σ S(si, fj) ≥ 1)) / m
+                        </pre>
+                        <p>This metric evaluates how well the retrieved sentences cover the relevant study aspects. It is crucial for determining the effectiveness of evidence retrieval systems in covering important aspects of a study.</p>
                     </li>
-                  </ul>
+                </ul>
 
-                  <p><strong>Task Definitions:</strong></p>
-                  <ul>
+                <p><strong>Task Definitions:</strong></p>
+                <ul>
                     <li>
-                      <p><strong>Evidence Retrieval @Optimal (ER @optimal)</strong></p>
-                      <p><strong>Description:</strong> Retrieve the smallest number of sentences needed to cover all study aspects.</p>
-                      <p><strong>Goal:</strong> Form the best evidence set for or against a hypothesis with no more than the optimal number of sentences.</p>
+                        <p><strong>Evidence Retrieval @Optimal (ER @optimal)</strong></p>
+                        <p><strong>Description:</strong> Retrieve the smallest number of sentences needed to cover all study aspects.</p>
+                        <p><strong>Goal:</strong> Form the best evidence set for or against a hypothesis with no more than the optimal number of sentences.</p>
                     </li>
                     <li>
-                      <p><strong>Evidence Retrieval @10 (ER @10)</strong></p>
-                      <p><strong>Description:</strong> Retrieve no more than 10 sentences to provide evidence for or against a hypothesis.</p>
-                      <p><strong>Goal:</strong> Achieve a maximum possible performance with a limited number of sentences.</p>
+                        <p><strong>Evidence Retrieval @10 (ER @10)</strong></p>
+                        <p><strong>Description:</strong> Retrieve no more than 10 sentences to provide evidence for or against a hypothesis.</p>
+                        <p><strong>Goal:</strong> Achieve a maximum possible performance with a limited number of sentences.</p>
                     </li>
                     <li>
-                      <p><strong>Result Evidence Retrieval @Optimal (Result ER @Optimal)</strong></p>
-                      <p><strong>Description:</strong> Retrieve the optimal number of sentences covering study aspects labeled as “Results”.</p>
-                      <p><strong>Goal:</strong> Focus on retrieving sentences related to results only.</p>
+                        <p><strong>Result Evidence Retrieval @Optimal (Result ER @Optimal)</strong></p>
+                        <p><strong>Description:</strong> Retrieve the optimal number of sentences covering study aspects labeled as “Results”.</p>
+                        <p><strong>Goal:</strong> Focus on retrieving sentences related to results only.</p>
                     </li>
                     <li>
-                      <p><strong>Result Evidence Retrieval @5 (Result ER @5)</strong></p>
-                      <p><strong>Description:</strong> Retrieve no more than 5 sentences related to results.</p>
-                      <p><strong>Goal:</strong> Provide targeted evaluation with a limited number of sentences.</p>
+                        <p><strong>Result Evidence Retrieval @5 (Result ER @5)</strong></p>
+                        <p><strong>Description:</strong> Retrieve no more than 5 sentences related to results.</p>
+                        <p><strong>Goal:</strong> Provide targeted evaluation with a limited number of sentences.</p>
                     </li>
                     <li>
-                      <p><strong>Result Evidence Retrieval Unconstrained (Result ER Unconstrained)</strong></p>
-                      <p><strong>Description:</strong> Retrieve any number of sentences deemed necessary.</p>
-                      <p><strong>Goal:</strong> Maximize coverage without a sentence limit.</p>
+                        <p><strong>Result Evidence Retrieval Unconstrained (Result ER Unconstrained)</strong></p>
+                        <p><strong>Description:</strong> Retrieve any number of sentences deemed necessary.</p>
+                        <p><strong>Goal:</strong> Maximize coverage without a sentence limit.</p>
                     </li>
-                  </ul>
-
+                </ul>
             </div>
         </div>
 
@@ -249,6 +313,11 @@
                 content.style.display = "none";
                 button.textContent = "+";
             }
+        }
+
+        function toggleMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
         }
     </script>
 </body>
