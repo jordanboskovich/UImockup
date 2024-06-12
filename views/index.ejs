@@ -8,24 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
+      
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
         body {
             background-color: #F8F9FF;
+            font-family: "Poppins", sans-serif;
         }
 
         .navbar {
-            box-shadow: 0 2px 2px -2px gray;
-            background-color: white !important;
-            height: 70px;
-            display: flex;
-            align-items: center;
-        }
+          box-shadow: 0 2px 2px -2px gray;
+          background-color: white !important;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
 
-        .navbar-brand {
-            margin: 0 auto;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+      .navbar-logo {
+          height: 50px; 
+      }
+
+      .navbar-text {
+          margin: 0 auto;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 1.5rem;
+          font-family: "Bree Serif", serif;
+      }
+      
+      .titleFont{
+        font-family: "Bree Serif", serif;
+      }
 
         .expandable-div {
             background-color: white;
@@ -69,13 +84,26 @@
       .floating-div .btn i {
           margin-right: 5px;
       }
+      
+      .btn-dark{
+        background-color: #7494D4 !important;
+        border-color: #7494D4 !important;
+      }
+      
+      .btn-dark:hover{
+        background-color: #607cac !important;
+        border-color: #607cac !important;
+      }
 
 
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">EvidenceBench</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a target="_blank" class="navbar-brand" href="https://lei.ucsd.edu/">
+        <img src="/images/logo.png" alt="EvidenceBench Logo" class="navbar-logo">
+    </a>
+    <span class="navbar-text mx-auto">EvidenceBench</span>
     </nav>
 
 
@@ -83,7 +111,7 @@
     <div class="container mt-4">
        
        <div class="floating-div" id="description-div">
-    <h4>About EvidenceBench</h4><br>
+    <h4 class="titleFont">About EvidenceBench</h4><br>
     <p>EvidenceBench is a cutting-edge benchmark designed to advance the field of biomedical information retrieval. It provides a standardized framework for evaluating the performance of models in extracting relevant evidence from biomedical literature. EvidenceBench is crafted to support the development and testing of models that can effectively synthesize and analyze scientific evidence, thereby accelerating research and enabling more informed decision-making in the biomedical field. </p>
 
   <p>Our benchmark leverages expertly annotated datasets derived from hundreds of biomedical papers, ensuring high-quality, reliable data for model training and evaluation. By providing a comprehensive and scalable evaluation framework, EvidenceBench aims to set a new standard for evidence retrieval tasks, fostering innovation and improvement in natural language processing and machine learning applications.</p><br>
@@ -92,7 +120,7 @@
       <a target="_blank" href="https://example.com/" class="btn btn-dark">
           <i class="fas fa-file-alt"></i> Paper
       </a>
-      <a target="_blank" href="https://example.com/" class="btn btn-dark">
+      <a target="_blank" href="https://lei.ucsd.edu/people" class="btn btn-dark">
           <i class="fas fa-users"></i> Lab Group
       </a>
       <a target="_blank" href="https://github.com/EvidenceBench/EvidenceBench" class="btn btn-dark">
@@ -103,7 +131,7 @@
        
         <div class="expandable-div" id="div-1">
             <div class="header">
-                <h5>Description of Benchmark</h5>
+                <h5 class="titleFont">Description of Benchmark</h5>
                 <button class="btn btn-sm" onclick="toggleContent(1)" id="button-1">+</button>
             </div>
             <div class="content">
@@ -131,7 +159,7 @@
 
         <div class="expandable-div" id="div-2">
             <div class="header">
-                <h5>Evaluation Metrics</h5>
+                <h5 class="titleFont">Evaluation Metrics</h5>
                 <button class="btn btn-sm" onclick="toggleContent(2)" id="button-2">+</button>
             </div>
             <div class="content">
@@ -181,7 +209,7 @@
 
         <div class="expandable-div" id="div-3">
             <div class="header">
-                <h5>Example/Case Study</h5>
+                <h5 class="titleFont">Example/Case Study</h5>
                 <button class="btn btn-sm" onclick="toggleContent(3)" id="button-3">+</button>
             </div>
             <div class="content">
@@ -191,7 +219,7 @@
 
         <div class="expandable-div" id="div-4">
             <div class="header">
-                <h5>Model Leaderboard</h5>
+                <h5 class="titleFont">Model Leaderboard</h5>
                 <button class="btn btn-sm" onclick="toggleContent(4)" id="button-4">+</button>
             </div>
             <div class="content">
@@ -201,7 +229,7 @@
 
         <div class="expandable-div" id="div-5">
             <div class="header">
-                <h5>Other</h5>
+                <h5 class="titleFont">Other</h5>
                 <button class="btn btn-sm" onclick="toggleContent(5)" id="button-5">+</button>
             </div>
             <div class="content">
