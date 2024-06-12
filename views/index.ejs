@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EvidenceBench</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             background-color: #F8F9FF;
@@ -55,23 +57,18 @@
       }
 
       .floating-div .links {
+          display: flex;
+          justify-content: center;
           margin-top: 15px;
       }
 
       .floating-div .btn {
-          margin-right: 10px;
+          margin: 0 5px;
       }
-      
-      .floating-div .links {
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
-    }
 
-    .floating-div .btn {
-        margin: 0 5px;
-    }
-
+      .floating-div .btn i {
+          margin-right: 5px;
+      }
 
 
     </style>
@@ -86,13 +83,22 @@
     <div class="container mt-4">
        
        <div class="floating-div" id="description-div">
-    <h4>About EvidenceBench</h4>
-    <p>Longer description about the mission, reasons, background, abstract etc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, nisl eget vestibulum rhoncus, elit neque euismod orci, eu vulputate leo magna id erat. Curabitur et diam vel ligula malesuada vehicula. Praesent auctor purus nec ipsum pulvinar, a venenatis libero egestas.</p>
-    <div class="links">
-        <a target="_blank" href="https://example.com/" class="btn btn-dark">Paper</a>
-        <a target="_blank" href="https://example.com/" class="btn btn-dark">Lab Group</a>
-        <a target="_blank" href="https://example.com/" class="btn btn-dark">GitHub</a>
-    </div>
+    <h4>About EvidenceBench</h4><br>
+    <p>EvidenceBench is a cutting-edge benchmark designed to advance the field of biomedical information retrieval. It provides a standardized framework for evaluating the performance of models in extracting relevant evidence from biomedical literature. EvidenceBench is crafted to support the development and testing of models that can effectively synthesize and analyze scientific evidence, thereby accelerating research and enabling more informed decision-making in the biomedical field. </p>
+
+  <p>Our benchmark leverages expertly annotated datasets derived from hundreds of biomedical papers, ensuring high-quality, reliable data for model training and evaluation. By providing a comprehensive and scalable evaluation framework, EvidenceBench aims to set a new standard for evidence retrieval tasks, fostering innovation and improvement in natural language processing and machine learning applications.</p><br>
+    
+  <div class="links">
+      <a target="_blank" href="https://example.com/" class="btn btn-dark">
+          <i class="fas fa-file-alt"></i> Paper
+      </a>
+      <a target="_blank" href="https://example.com/" class="btn btn-dark">
+          <i class="fas fa-users"></i> Lab Group
+      </a>
+      <a target="_blank" href="https://github.com/EvidenceBench/EvidenceBench" class="btn btn-dark">
+          <i class="fab fa-github"></i> GitHub
+      </a>
+  </div>
 </div>
        
         <div class="expandable-div" id="div-1">
@@ -101,7 +107,25 @@
                 <button class="btn btn-sm" onclick="toggleContent(1)" id="button-1">+</button>
             </div>
             <div class="content">
-                <p>Here we would include the description of the benchmark and all relevant details.</p>
+               <p><strong>EvidenceBench</strong> is a benchmark designed to evaluate models' ability to retrieve evidence from biomedical literature. It includes over 400 annotated biomedical papers with approximately 700,000 sentence-level annotations, each identifying relevant study aspects that provide evidence for or against scientific hypotheses.</p>
+
+              <p><strong>Key Components:</strong></p>
+              <ul>
+                <li><strong>Datasets</strong>: Expert-annotated biomedical papers with detailed study aspects.</li>
+                <li><strong>Tasks</strong>: Evidence Retrieval @K (ER@K), where models retrieve sentences that best cover the study aspects.</li>
+                <li><strong>Evaluation Metrics</strong>: Aspect Recall @K, measuring the fraction of study aspects covered by the retrieved sentences.</li>
+              </ul>
+
+              <p><strong>Evaluation Strategies:</strong></p>
+              <ul>
+                <li><strong>Chain-of-Thought Prompting</strong>: Guides models through logical reasoning steps.</li>
+                <li><strong>In-Context Learning (ICL)</strong>: Uses example-based prompting to enhance understanding.</li>
+                <li><strong>Section-by-Section Processing</strong>: Retrieves evidence from each section of a paper independently.</li>
+                <li><strong>Instruction-following Embedding Systems</strong>: Utilizes advanced embedding models to optimize retrieval.</li>
+              </ul>
+
+              <p>EvidenceBench provides a comprehensive and standardized framework for testing and improving evidence retrieval models, fostering innovation in biomedical information processing.</p>
+
             </div>
         </div>
 
@@ -111,7 +135,47 @@
                 <button class="btn btn-sm" onclick="toggleContent(2)" id="button-2">+</button>
             </div>
             <div class="content">
-                <p>Here we would provide an explanation for the evaluation metrics, etc.</p>
+                <p><strong>Evaluation Metrics:</strong></p>
+                  <ul>
+                    <li>
+                      <p><strong>Aspect Recall @K</strong></p>
+                      <p>Aspect Recall @K measures the fraction of study aspects covered by a set of K retrieved sentences. Let {s1, …, sk} be the set of retrieved sentences and {f1, …, fm} be the set of study aspects in the evidence set. Aspect Recall @K is defined as:</p>
+                      <pre>
+                      Aspect Recall @K = (Σ 1(if Σ S(si, fj) ≥ 1)) / m
+                      </pre>
+                      <p>This metric evaluates how well the retrieved sentences cover the relevant study aspects. It is crucial for determining the effectiveness of evidence retrieval systems in covering important aspects of a study.</p>
+                    </li>
+                  </ul>
+
+                  <p><strong>Task Definitions:</strong></p>
+                  <ul>
+                    <li>
+                      <p><strong>Evidence Retrieval @Optimal (ER @optimal)</strong></p>
+                      <p><strong>Description:</strong> Retrieve the smallest number of sentences needed to cover all study aspects.</p>
+                      <p><strong>Goal:</strong> Form the best evidence set for or against a hypothesis with no more than the optimal number of sentences.</p>
+                    </li>
+                    <li>
+                      <p><strong>Evidence Retrieval @10 (ER @10)</strong></p>
+                      <p><strong>Description:</strong> Retrieve no more than 10 sentences to provide evidence for or against a hypothesis.</p>
+                      <p><strong>Goal:</strong> Achieve a maximum possible performance with a limited number of sentences.</p>
+                    </li>
+                    <li>
+                      <p><strong>Result Evidence Retrieval @Optimal (Result ER @Optimal)</strong></p>
+                      <p><strong>Description:</strong> Retrieve the optimal number of sentences covering study aspects labeled as “Results”.</p>
+                      <p><strong>Goal:</strong> Focus on retrieving sentences related to results only.</p>
+                    </li>
+                    <li>
+                      <p><strong>Result Evidence Retrieval @5 (Result ER @5)</strong></p>
+                      <p><strong>Description:</strong> Retrieve no more than 5 sentences related to results.</p>
+                      <p><strong>Goal:</strong> Provide targeted evaluation with a limited number of sentences.</p>
+                    </li>
+                    <li>
+                      <p><strong>Result Evidence Retrieval Unconstrained (Result ER Unconstrained)</strong></p>
+                      <p><strong>Description:</strong> Retrieve any number of sentences deemed necessary.</p>
+                      <p><strong>Goal:</strong> Maximize coverage without a sentence limit.</p>
+                    </li>
+                  </ul>
+
             </div>
         </div>
 
