@@ -161,6 +161,18 @@
         .dark-mode .custom-control-label .fa-moon {
             color: #fff;
         }
+      
+        .inline{
+          display: inline;
+        }
+      
+      .center-image {
+        text-align: center;
+      }
+      .small-image {
+          width: 30vw; 
+          height: auto;
+      }
     </style>
 </head>
 <body>
@@ -177,23 +189,29 @@
 
     <div class="container mt-4">
         <div class="floating-div" id="description-div">
-            <h4 class="titleFont">About EvidenceBench</h4><br>
-            <p>EvidenceBench is a cutting-edge benchmark designed to advance the field of biomedical information retrieval. It provides a standardized framework for evaluating the performance of models in extracting relevant evidence from biomedical literature. EvidenceBench is crafted to support the development and testing of models that can effectively synthesize and analyze scientific evidence, thereby accelerating research and enabling more informed decision-making in the biomedical field.</p>
+          <h4 class="titleFont inline">EvidenceBench</h4>
+          <p class="inline">: A Benchmark for Extracting Evidence from Biomedical Papers</p>
 
-            <p>Our benchmark leverages expertly annotated datasets derived from hundreds of biomedical papers, ensuring high-quality, reliable data for model training and evaluation. By providing a comprehensive and scalable evaluation framework, EvidenceBench aims to set a new standard for evidence retrieval tasks, fostering innovation and improvement in natural language processing and machine learning applications.</p><br>
+          <div class="center-image">
+            <img src="/images/icon.png" alt="evidencebench icon" class="small-image">
+          </div>
 
-            <div class="links">
-                <a target="_blank" href="https://example.com/" class="btn btn-dark">
-                    <i class="fas fa-file-alt"></i> Paper
-                </a>
-                <a target="_blank" href="https://lei.ucsd.edu/people" class="btn btn-dark">
-                    <i class="fas fa-users"></i> Lab Group
-                </a>
-                <a target="_blank" href="https://github.com/EvidenceBench/EvidenceBench" class="btn btn-dark">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
-        </div>
+          <p>EvidenceBench is a cutting-edge benchmark designed to advance the field of biomedical information retrieval. It provides a standardized framework for evaluating the performance of models in extracting relevant evidence from biomedical literature. EvidenceBench is crafted to support the development and testing of models that can effectively synthesize and analyze scientific evidence, thereby accelerating research and enabling more informed decision-making in the biomedical field.</p>
+
+          <p>Our benchmark leverages expertly annotated datasets derived from hundreds of biomedical papers, ensuring high-quality, reliable data for model training and evaluation. By providing a comprehensive and scalable evaluation framework, EvidenceBench aims to set a new standard for evidence retrieval tasks, fostering innovation and improvement in natural language processing and machine learning applications.</p><br>
+
+          <div class="links">
+              <a target="_blank" href="https://example.com/" class="btn btn-dark">
+                  <i class="fas fa-file-alt"></i> Paper
+              </a>
+              <a target="_blank" href="https://lei.ucsd.edu/people" class="btn btn-dark">
+                  <i class="fas fa-users"></i> Lab Group
+              </a>
+              <a target="_blank" href="https://github.com/EvidenceBench/EvidenceBench" class="btn btn-dark">
+                  <i class="fab fa-github"></i> GitHub
+              </a>
+          </div>
+      </div>
 
         <div class="expandable-div" id="div-1">
             <div class="header">
